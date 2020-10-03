@@ -1,25 +1,24 @@
-package com.isiyi.order.service.impl;
+package com.isiyi.bubbo.boot.service.impl;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.isiyi.ginter.entity.UserAddressEntity;
 import com.isiyi.ginter.service.OrderService;
 import com.isiyi.ginter.service.UserAddressService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Slf4j
-@Service
-public class OrderServiceImpl implements OrderService {
+/**
+ * @author: Xiang.pf
+ * @time: 2020/10/3 10:49
+ */
+@Component
+public class OrderServiceImpl  implements OrderService {
 
-
-    @Autowired
-    UserAddressService userAddressService;
+    @Reference
+    private UserAddressService userAddressService;
 
     public UserAddressEntity initOrder(Long userId) {
-        //根据用户Id获取用的地址
         UserAddressEntity userAddressByUserId = userAddressService.getUserAddressByUserId(userId);
-        log.info("消费者消费数据：{}", userAddressByUserId);
-        System.out.println(userAddressByUserId);
         return userAddressByUserId;
     }
 }

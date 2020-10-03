@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.isiyi</groupId>
-            <artifactId>isiyi.dubbo-start-globalinter</artifactId>
+            <artifactId>isiyi-dubbo-globalinter</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
